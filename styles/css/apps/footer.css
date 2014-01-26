@@ -1,0 +1,31 @@
+/* line 2, ../../apps/footer.scss */
+#footer {
+  background-color: black;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  margin-bottom: 15px;
+}
+/* line 10, ../../apps/footer.scss */
+#footer ul {
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 60px;
+}
+/* line 19, ../../apps/footer.scss */
+#footer li {
+  display: inline;
+  vertical-align: middle;
+  margin-left: 30px;
+}
+/* line 26, ../../apps/footer.scss */
+#footer a {
+  text-decoration: none;
+  color: white;
+}
+/* line 29, ../../apps/footer.scss */
+#footer a:hover {
+  color: gray;
+}

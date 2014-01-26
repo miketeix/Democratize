@@ -1,0 +1,10 @@
+@import '../bower_components/normalize.scss/_normalize';
+@import '../bower_components/sass-bootstrap/lib/bootstrap';
+
+//Global styles
+@import 'utils/_vars';
+@import 'comps/_base';
+
+//Module Styles
+@import 'apps/header';
+@import 'apps/footer';

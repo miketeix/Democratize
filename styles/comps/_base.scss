@@ -1,0 +1,5 @@
+html, body	{  height: 100%; 
+				background-color: #272822; }     
+#wrap 		{  height: auto !important; min-height: 100%; margin-bottom: -$pushHeight;  }    
+
+#push {  height: $pushHeight;  } 
