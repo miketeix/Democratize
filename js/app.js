@@ -38,7 +38,8 @@ define(["backbone", "backbone.marionette", "msgbus", "apps/load"], function(Back
   });
   app.addInitializer(function(options) {
     msgBus.commands.execute("start:header:app");
-    return msgBus.commands.execute("start:footer:app");
+    msgBus.commands.execute("start:footer:app");
+    return msgBus.commands.execute("start:bills:app");
   });
   return app;
 });

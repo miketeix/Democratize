@@ -58,6 +58,7 @@ define ["backbone", "backbone.marionette", "msgbus", "apps/load" ], (Backbone, M
         #console.log "addinitializers"
         msgBus.commands.execute "start:header:app"
         msgBus.commands.execute "start:footer:app"
+        msgBus.commands.execute "start:bills:app"
         # msgBus.commands.execute "start:d3:app"
         # msgBus.commands.execute "start:about:app"
         # msgBus.commands.execute "start:games:app"
