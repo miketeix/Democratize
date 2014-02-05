@@ -7,8 +7,9 @@ define ["msgbus", "apps/bills/list/views", "controller/_base", "backbone" ], (ms
             @layout = @getLayoutView()
 
             @listenTo @layout, "show", =>
+                @searchRegion()
                 @slideRegion() # @entities
-                # @searchRegion()
+                
 
             # @listenTo @layout, "show:tile", =>
             #     @tileRegion() # @entities
@@ -24,7 +25,10 @@ define ["msgbus", "apps/bills/list/views", "controller/_base", "backbone" ], (ms
 
         slideRegion: ->
             sliderView = @getSliderView @entities
+            # @listenTo sliderView, 'composite:rendered', =>
+            #     console.log("sliderView Rendered")
             @layout.billsRegion.show sliderView
+            sliderView.slider.updateSliderSize(); # RoyalSlider can only calculate size after being inserted into DOM
              
 
 
@@ -32,5 +36,6 @@ define ["msgbus", "apps/bills/list/views", "controller/_base", "backbone" ], (ms
             new Views.SliderView
                 collection: collection
 
-        # searchRegion: ->
-        # 
+        searchRegion: ->
+            msgBus.commands.execute "show:search", @layout.searchRegion
+        

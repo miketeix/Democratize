@@ -2,7 +2,7 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(["msgbus", "backbone.marionette", "backbone", "apps/bills/list/controller"], function(msgBus, Marionette, Backbone, ListController) {
+define(["msgbus", "backbone.marionette", "backbone", "apps/bills/list/controller", "apps/bills/search/controller"], function(msgBus, Marionette, Backbone, ListController, SearchController) {
   var API, Router, _ref;
   Router = (function(_super) {
     __extends(Router, _super);
@@ -24,9 +24,17 @@ define(["msgbus", "backbone.marionette", "backbone", "apps/bills/list/controller
       return new ListController({
         region: msgBus.reqres.request("main:region")
       });
+    },
+    search: function(region) {
+      return new SearchController({
+        region: region
+      });
     }
   };
-  return msgBus.commands.setHandler("start:bills:app", function() {
+  msgBus.commands.setHandler("start:bills:app", function() {
     return API.list();
+  });
+  return msgBus.commands.setHandler("show:search", function(region) {
+    return API.search(region);
   });
 });

@@ -1,4 +1,4 @@
-define ['apps/bills/list/templates', 'views/_base', 'msgbus'], (Templates, AppView, msgBus) ->
+define ['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], (Templates, AppView, msgBus, royalSlider) ->
 
 	class SlideItem extends AppView.ItemView
 		template: Templates.slideItem
@@ -8,7 +8,16 @@ define ['apps/bills/list/templates', 'views/_base', 'msgbus'], (Templates, AppVi
   		template: Templates.slider
   		itemView: SlideItem
   		itemViewContainer: "#panes"
+  		slider: null
 
+  		onCompositeRendered: =>
+  			@slider = @$("#panes").royalSlider(
+  						autoHeight: true,
+  						keyboardNavEnabled: true,
+  						arrowsNav: false,
+  						navigateByClick: false,
+  						controlNavigation: 'none').data('royalSlider')
+						
 
 	Layout: class BillsLayout extends AppView.Layout
 		template: Templates.layout

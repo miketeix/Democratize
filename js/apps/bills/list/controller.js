@@ -20,6 +20,7 @@ define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone"], func
       this.entities = msgBus.reqres.request("bill:entities");
       this.layout = this.getLayoutView();
       this.listenTo(this.layout, "show", function() {
+        _this.searchRegion();
         return _this.slideRegion();
       });
       return this.show(this.layout);
@@ -32,13 +33,18 @@ define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone"], func
     Controller.prototype.slideRegion = function() {
       var sliderView;
       sliderView = this.getSliderView(this.entities);
-      return this.layout.billsRegion.show(sliderView);
+      this.layout.billsRegion.show(sliderView);
+      return sliderView.slider.updateSliderSize();
     };
 
     Controller.prototype.getSliderView = function(collection) {
       return new Views.SliderView({
         collection: collection
       });
+    };
+
+    Controller.prototype.searchRegion = function() {
+      return msgBus.commands.execute("show:search", this.layout.searchRegion);
     };
 
     return Controller;

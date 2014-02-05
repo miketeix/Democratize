@@ -9,6 +9,7 @@ require.config({
     "backbone.babysitter": "../bower_components/backbone.babysitter/lib/amd/backbone.babysitter",
     "backbone.syphon": "../bower_components/backbone.syphon/lib/amd/backbone.syphon",
     bootstrap: "vendor/bootstrap",
+    royalslider: "vendor/royalslider.min",
     d3: "../bower_components/d3/d3",
     text: "../bower_components/requirejs-text/text",
     handlebars: "../bower_components/require-handlebars-plugin/Handlebars",
@@ -20,6 +21,9 @@ require.config({
     disableI18n: true
   },
   shim: {
+    royalslider: {
+      deps: ["jquery"]
+    },
     bootstrap: {
       deps: ["jquery"],
       exports: "jquery"

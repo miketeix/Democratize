@@ -1,1 +1,30 @@
-<div>slideItem</div>
+<div class="bill slide" >
+    <img src='assets/images/conservative-logo.png'>
+    <table >
+        <tr >
+          <td ><h1>{{chamber}}-{{number}}: {{ short_title_en }}</h1></td>
+          <td rowspan='2' valign='top' ><img id='MP-img' src='assets/images/mp.png' ></td>
+        </tr>
+        <tr >
+          <td style='padding: 0px; display:block'><h3>{{ title_en }}</h3></td>
+        </tr>
+    </table>    
+    <textarea id='billDescription' style='rows:400'>This enactment amends the Immigration and Refugee Protection Act and the Balanced Refugee Reform Act to, among other things, provide for the expediting of the processing of refugee protection claims.</textarea>
+    <div style="text-align:center;">
+        <div id='vote-buttons' style="display:inline-block;">
+            <img src='assets/images/yay.png'>
+            <img src='assets/images/nay.png' style='margin-left:70px;'>
+        </div>
+    </div>
+    <div id='tags'>
+        <ul>
+            <li style='margin-left:0;'>#{{ tags.[0].en }}</li>
+            {{!-- tags[0].en --}}
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>

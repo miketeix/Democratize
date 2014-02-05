@@ -1,0 +1,163 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_slide\.scss}line{font-family:\000031}}
+.bill {
+  background-color: #a6c3f4;
+  position: relative;
+  padding: 0 75px;
+  text-align: left;
+  font-family: serif;
+  width: 670px;
+  height: 533px;
+  overflow: hidden;
+  display: inline-block;
+  /*#MP-img
+   * position: absolute
+   * top: 95px
+   * right: 75px */
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_slide\.scss}line{font-family:\0000315}}
+.bill table {
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_slide\.scss}line{font-family:\0000318}}
+.bill table #MP-img {
+  margin-top: -20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_slide\.scss}line{font-family:\0000322}}
+.bill h1 {
+  width: 550px;
+  hyphens: auto;
+  margin: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_slide\.scss}line{font-family:\0000327}}
+.bill h3 {
+  width: 550px;
+  hyphens: auto;
+  margin: 0;
+  padding: 0 15px 10px;
+  line-height: 20px;
+  font-size: 20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_slide\.scss}line{font-family:\0000335}}
+.bill h1 {
+  margin-bottom: 10px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_slide\.scss}line{font-family:\0000338}}
+.bill textarea {
+  position: relative;
+  top: -10px;
+  width: 97%;
+  height: 120px;
+  overflow-y: scroll;
+  resize: none;
+  ms-scrollbar-base-color: white;
+  readOnly: true;
+  background-color: #cedef9;
+  padding: 10px;
+  font-size: 12px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_slide\.scss}line{font-family:\0000351}}
+.bill #vote-buttons {
+  display: block;
+  margin: 25px auto;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_slide\.scss}line{font-family:\0000354}}
+.bill #vote-buttons img {
+  width: 120px;
+  height: 55px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_slide\.scss}line{font-family:\0000359}}
+.bill #tags {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: inline;
+  background-color: black;
+  height: 35px;
+  width: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_slide\.scss}line{font-family:\0000368}}
+.bill #tags ul {
+  padding: 0;
+  margin: 0 75px;
+  line-height: 35px;
+  vertical-align: middle;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_slide\.scss}line{font-family:\0000374}}
+.bill #tags li {
+  color: white;
+  display: inline;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_slider\.scss}line{font-family:\000031}}
+.wrapper {
+  width: 65%;
+  margin: 0 auto;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_slider\.scss}line{font-family:\000037}}
+.arrows img {
+  height: 40px;
+  width: 40px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_slider\.scss}line{font-family:\0000313}}
+.prev {
+  margin-right: 20px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_slider\.scss}line{font-family:\0000317}}
+.next {
+  margin-left: 20px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_slider\.scss}line{font-family:\0000321}}
+#slider-wrapper {
+  text-align: center;
+  vertical-align: center;
+  position: relative;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_slider\.scss}line{font-family:\0000325}}
+#slider-wrapper .controls {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_slider\.scss}line{font-family:\0000333}}
+#slider-container {
+  margin-top: 25px;
+  margin-left: 60px;
+  height: 533px;
+  width: 820px;
+  display: inline-block;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_slider\.scss}line{font-family:\0000343}}
+#slider-container .slider {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_slider\.scss}line{font-family:\0000347}}
+#slider-container .slider .slide {
+  position: relative;
+  white-space: normal;
+  display: inline-block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_slider\.scss}line{font-family:\0000355}}
+#toggleTileView {
+  display: inline-block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_slider\.scss}line{font-family:\0000357}}
+#toggleTileView:hover {
+  background-color: white;
+}

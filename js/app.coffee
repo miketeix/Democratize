@@ -2,8 +2,8 @@
 define ["backbone", "backbone.marionette", "msgbus", "apps/load" ], (Backbone, Marionette, msgBus ) ->
     app = new Marionette.Application()
 
-    app.rootRoute = "about"
-    app.authRoute = "games"
+    # app.rootRoute = "about"
+    # app.authRoute = "games"
 
     app.addRegions
         headerRegion : "#header-region"

@@ -1,0 +1,277 @@
+/* v1.0.5 */
+/* Core RS CSS file. 95% of time you shouldn't change anything here. */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\000034}}
+.royalSlider {
+  width: 600px;
+  height: 400px;
+  position: relative;
+  direction: ltr;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\000039}}
+.royalSlider > * {
+  float: left;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\0000315}}
+.rsWebkit3d .rsSlide {
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\0000319}}
+.rsWebkit3d .rsContainer, .rsWebkit3d .rsThumbs, .rsWebkit3d .rsPreloader, .rsWebkit3d img, .rsWebkit3d .rsOverflow, .rsWebkit3d .rsBtnCenterer, .rsWebkit3d .rsAbsoluteEl, .rsWebkit3d .rsABlock, .rsWebkit3d .rsLink {
+  -webkit-backface-visibility: hidden;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\0000325}}
+.rsFade.rsWebkit3d .rsSlide, .rsFade.rsWebkit3d img, .rsFade.rsWebkit3d .rsContainer {
+  -webkit-transform: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\0000330}}
+.rsOverflow {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\0000339}}
+.rsVisibleNearbyWrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\0000347}}
+.rsVisibleNearbyWrap .rsOverflow {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\0000354}}
+.rsContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\0000361}}
+.rsArrow, .rsThumbsArrow {
+  cursor: pointer;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\0000365}}
+.rsThumb {
+  float: left;
+  position: relative;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\0000370}}
+.rsArrow, .rsNav, .rsThumbsArrow {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s linear;
+  -moz-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\0000378}}
+.rsHidden {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: visibility 0s linear 0.3s,opacity 0.3s linear;
+  -moz-transition: visibility 0s linear 0.3s,opacity 0.3s linear;
+  -o-transition: visibility 0s linear 0.3s,opacity 0.3s linear;
+  transition: visibility 0s linear 0.3s,opacity 0.3s linear;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\0000387}}
+.rsGCaption {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+
+/* Fullscreen options, very important ^^ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\0000396}}
+.royalSlider.rsFullscreen {
+  position: fixed !important;
+  height: auto !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 2147483647 !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  right: 0 !important;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003108}}
+.royalSlider .rsSlide.rsFakePreloader {
+  opacity: 1 !important;
+  -webkit-transition: 0s;
+  -moz-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
+  display: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003118}}
+.rsSlide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003128}}
+.royalSlider.rsAutoHeight, .rsAutoHeight .rsSlide {
+  height: auto;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003132}}
+.rsContent {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003138}}
+.rsPreloader {
+  position: absolute;
+  z-index: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003143}}
+.rsNav {
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003149}}
+.rsNavItem {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.25);
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003153}}
+.rsThumbs {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  z-index: 22;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003161}}
+.rsTabs {
+  float: left;
+  background: none !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003168}}
+.rsThumbs {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003173}}
+.rsVideoContainer {
+  /*left: 0;
+  top: 0;
+  position: absolute;*/
+  /*width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  float: left;*/
+  width: auto;
+  height: auto;
+  line-height: 0;
+  position: relative;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003189}}
+.rsVideoFrameHolder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #141414;
+  opacity: 0;
+  -webkit-transition: .3s;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003196}}
+.rsVideoFrameHolder.rsVideoActive {
+  opacity: 1;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003202}}
+.rsVideoContainer iframe, .rsVideoContainer video, .rsVideoContainer embed, .rsVideoContainer .rsVideoObj {
+  position: absolute;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003211}}
+.rsVideoContainer.rsIOSVideo iframe, .rsVideoContainer.rsIOSVideo video, .rsVideoContainer.rsIOSVideo embed {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: 44px;
+}
+
+/* ios controls over video bug, shifting video */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003222}}
+.rsABlock {
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: 15;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003229}}
+img.rsImg {
+  max-width: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003233}}
+.grab-cursor {
+  cursor: url(grab.png) 8 8, move;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003237}}
+.grabbing-cursor {
+  cursor: url(grabbing.png) 8 8, move;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003241}}
+.rsNoDrag {
+  cursor: auto;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/vendor\/royalslider\.scss}line{font-family:\00003245}}
+.rsLink {
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 20;
+  background: url(blank.gif);
+}

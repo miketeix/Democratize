@@ -1,0 +1,21 @@
+<div class="dropdown">
+  <a id="dLabel" data-toggle="dropdown" href="#">Dropdown<span class="glyphicon glyphicon-search"></span><span class="caret"></span></a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    {{#each items }}
+      {{#if grouped}}
+        <li role="presentation" style="display:inline-block;"> 
+          <a role="menuitem" tabindex="0" href="#" >{{ name }}</a>
+        </li>
+      {{/if}}
+    {{/each}}
+        <li role="presentation" class="divider"></li>
+    {{#each items }}
+      {{#unless grouped}}
+        <li role="presentation"> 
+          <a role="menuitem" tabindex="0" href="#" >{{ name }}</a>
+        </li>
+      {{/unless}}
+      
+    {{/each}}
+  </ul>
+</div>	

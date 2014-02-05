@@ -16,8 +16,9 @@ require.config
     "backbone.babysitter": "../bower_components/backbone.babysitter/lib/amd/backbone.babysitter"
     "backbone.syphon": "../bower_components/backbone.syphon/lib/amd/backbone.syphon" # amd version
 
-    # alias the bootstrap js lib 
+    # vendor scripts
     bootstrap: "vendor/bootstrap"
+    royalslider: "vendor/royalslider.min"
 
      # data visualization
     d3: "../bower_components/d3/d3"
@@ -44,6 +45,8 @@ require.config
     # backbone:
     #   deps: ["underscore", "jquery"]
     #   exports: "Backbone"
+    royalslider:
+        deps: ["jquery"] 
 
     bootstrap:
       deps: ["jquery"]
