@@ -1,7 +1,8 @@
-.wrapper {
-  width: 65%;
-  margin: 0 auto;
-}
+// @import "compass/css3/box-sizing";
+
+// #panes {
+//   @include box-sizing("content-box"); //compass utility mixin for box-sixing
+// }
 
 .arrows {
     img {
@@ -11,7 +12,8 @@
 }
 
 .prev {
-  margin-right: 20px;
+  // margin-right: 20px;
+  left: 0px;
 }
 
 .next {
@@ -19,9 +21,18 @@
 }
 
 #slider-wrapper {
+
+   
   text-align: center;
   vertical-align: center;
   position: relative;
+
+  margin-left: auto;
+  margin-right: auto;
+  // padding-left: 15px;
+  // padding-right: 20px;
+  width: 940px;
+
   .controls {
     display: inline-block;
     position: absolute;
@@ -32,7 +43,7 @@
 
 #slider-container {
   margin-top: 25px;
-  margin-left: 60px;
+  // margin-left: 60px;
   height: 533px;
   width: 820px;
   display: inline-block;
@@ -49,12 +60,5 @@
       white-space: normal;
       display: inline-block;
     }
-  }
-}
-
-#toggleTileView {
-  display: inline-block;
-  &:hover {
-    background-color: white;
   }
 }

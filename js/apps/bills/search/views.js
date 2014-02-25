@@ -3,7 +3,7 @@ var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
 define(['apps/bills/search/templates', 'views/_base', 'msgbus'], function(Templates, AppView, msgBus) {
-  var InputView, MenuView, SearchLayout, _ref, _ref1, _ref2;
+  var InputView, MenuView, SearchLayout, ToggleView, _ref, _ref1, _ref2, _ref3;
   return {
     Layout: SearchLayout = (function(_super) {
       __extends(SearchLayout, _super);
@@ -17,7 +17,23 @@ define(['apps/bills/search/templates', 'views/_base', 'msgbus'], function(Templa
 
       SearchLayout.prototype.regions = {
         inputRegion: "#input-region",
-        menuRegion: "#menu-region"
+        menuRegion: "#menu-region",
+        toggleRegion: "#toggle-region"
+      };
+
+      SearchLayout.prototype.events = {
+        "click #tile-toggle": "tile"
+      };
+
+      SearchLayout.prototype.tile = function() {
+        $("#tile-toggle span:first-child").toggleClass(function() {
+          if ($(this).hasClass("glyphicon-th")) {
+            return "glyphicon-stop";
+          } else if ($(this).hasClass("glyphicon-stop")) {
+            return "glyphicon-th";
+          }
+        });
+        return this.trigger("toggle:tile:view");
       };
 
       return SearchLayout;
@@ -47,6 +63,19 @@ define(['apps/bills/search/templates', 'views/_base', 'msgbus'], function(Templa
       MenuView.prototype.template = Templates.menu;
 
       return MenuView;
+
+    })(AppView.ItemView),
+    ToggleView: ToggleView = (function(_super) {
+      __extends(ToggleView, _super);
+
+      function ToggleView() {
+        _ref3 = ToggleView.__super__.constructor.apply(this, arguments);
+        return _ref3;
+      }
+
+      ToggleView.prototype.template = Templates.toggle;
+
+      return ToggleView;
 
     })(AppView.ItemView)
   };

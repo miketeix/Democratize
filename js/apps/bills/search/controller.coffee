@@ -2,31 +2,43 @@ define ["msgbus", "apps/bills/search/views", "controller/_base", "backbone" ], (
 	class Controller extends AppController
 		initialize: (options={}) ->
 
-            @entities= msgBus.reqres.request "menu:entities"
-            
-            @layout = @getLayoutView()
+			@entities= msgBus.reqres.request "menu:entities"
 
-            @listenTo @layout, "show", =>
-                @inputRegion() #search box
-                @menuRegion()  #dropdown menu
-                
-            @show @layout
+			@layout = @getLayoutView()
+
+			@listenTo @layout, "show", =>
+				@toggleRegion() #tile toggle button
+				@inputRegion() #search box
+				@menuRegion()  #dropdown menu
+
+			@listenTo @layout, "toggle:tile:view", =>
+				msgBus.commands.execute "toggle:bills:region"
+
+			@show @layout
 
 
-        menuRegion: ->
-        	@dropdown = @getMenuView @entities
-        	@layout.menuRegion.show @dropdown
+		menuRegion: ->
+			@dropdown = @getMenuView @entities
+			@layout.menuRegion.show @dropdown
 
-        inputRegion: ->
-        	@inputBox = @getInputView()
-        	@layout.inputRegion.show @inputBox
+		inputRegion: ->
+			@inputBox = @getInputView()
+			@layout.inputRegion.show @inputBox
 
-        getLayoutView: ->
-            new Views.Layout
+		toggleRegion: ->
+			@tileToggle = @getToggleView()
+			@layout.toggleRegion.show @tileToggle
 
-        getInputView: ->
-        	new Views.InputView
+
+		getLayoutView: ->
+			new Views.Layout
+
+		getToggleView: ->
+			new Views.ToggleView
+
+		getInputView: ->
+			new Views.InputView
 
 		getMenuView: (collection) ->
 			new Views.MenuView 
-				collection: collection
+				collection: collection		

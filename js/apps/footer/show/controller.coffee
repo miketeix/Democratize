@@ -2,7 +2,6 @@ define ["msgbus", "controller/_base", "apps/footer/show/views"], (msgBus, AppCon
 	class Controller extends AppController
 		initialize: ->
 			footerView = @getFooterView()
-			console.log("footerView: "+footerView);
 			@show footerView
 
 		

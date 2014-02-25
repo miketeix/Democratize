@@ -4,28 +4,41 @@ var __hasProp = {}.hasOwnProperty,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 define(['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], function(Templates, AppView, msgBus, royalSlider) {
-  var BillsLayout, SlideItem, SliderView, _ref, _ref1, _ref2;
-  SlideItem = (function(_super) {
-    __extends(SlideItem, _super);
-
-    function SlideItem() {
-      _ref = SlideItem.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    SlideItem.prototype.template = Templates.slideItem;
-
-    return SlideItem;
-
-  })(AppView.ItemView);
+  var BillsAppLayout, SlideItem, SliderView, TileItem, TileView, _ref, _ref1, _ref2, _ref3, _ref4;
   return {
+    SlideItem: SlideItem = (function(_super) {
+      __extends(SlideItem, _super);
+
+      function SlideItem() {
+        _ref = SlideItem.__super__.constructor.apply(this, arguments);
+        return _ref;
+      }
+
+      SlideItem.prototype.template = Templates.slideItem;
+
+      return SlideItem;
+
+    })(AppView.ItemView),
+    TileItem: TileItem = (function(_super) {
+      __extends(TileItem, _super);
+
+      function TileItem() {
+        _ref1 = TileItem.__super__.constructor.apply(this, arguments);
+        return _ref1;
+      }
+
+      TileItem.prototype.template = Templates.tileItem;
+
+      return TileItem;
+
+    })(AppView.ItemView),
     SliderView: SliderView = (function(_super) {
       __extends(SliderView, _super);
 
       function SliderView() {
         this.onCompositeRendered = __bind(this.onCompositeRendered, this);
-        _ref1 = SliderView.__super__.constructor.apply(this, arguments);
-        return _ref1;
+        _ref2 = SliderView.__super__.constructor.apply(this, arguments);
+        return _ref2;
       }
 
       SliderView.prototype.template = Templates.slider;
@@ -42,6 +55,7 @@ define(['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], fu
           keyboardNavEnabled: true,
           arrowsNav: false,
           navigateByClick: false,
+          allowCSS3: false,
           controlNavigation: 'none'
         }).data('royalSlider');
       };
@@ -49,22 +63,47 @@ define(['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], fu
       return SliderView;
 
     })(AppView.CompositeView),
-    Layout: BillsLayout = (function(_super) {
-      __extends(BillsLayout, _super);
+    TileView: TileView = (function(_super) {
+      __extends(TileView, _super);
 
-      function BillsLayout() {
-        _ref2 = BillsLayout.__super__.constructor.apply(this, arguments);
-        return _ref2;
+      function TileView() {
+        _ref3 = TileView.__super__.constructor.apply(this, arguments);
+        return _ref3;
       }
 
-      BillsLayout.prototype.template = Templates.layout;
+      TileView.prototype.template = Templates.tile;
 
-      BillsLayout.prototype.regions = {
+      TileView.prototype.itemView = TileItem;
+
+      TileView.prototype.itemViewContainer = "#tileitems";
+
+      return TileView;
+
+    })(AppView.CompositeView),
+    Layout: BillsAppLayout = (function(_super) {
+      __extends(BillsAppLayout, _super);
+
+      function BillsAppLayout() {
+        _ref4 = BillsAppLayout.__super__.constructor.apply(this, arguments);
+        return _ref4;
+      }
+
+      BillsAppLayout.prototype.template = Templates.layout;
+
+      BillsAppLayout.prototype.regions = {
         searchRegion: "#search-region",
         billsRegion: "#bills-region"
       };
 
-      return BillsLayout;
+      BillsAppLayout.prototype.events = {
+        "click #tile-toggle": "tile"
+      };
+
+      BillsAppLayout.prototype.tile = function() {
+        return this.trigger("show:tile");
+      };
+
+      return BillsAppLayout;
 
     })(AppView.Layout)
   };

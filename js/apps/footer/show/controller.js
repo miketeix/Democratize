@@ -15,7 +15,6 @@ define(["msgbus", "controller/_base", "apps/footer/show/views"], function(msgBus
     Controller.prototype.initialize = function() {
       var footerView;
       footerView = this.getFooterView();
-      console.log("footerView: " + footerView);
       return this.show(footerView);
     };
 

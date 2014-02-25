@@ -30,7 +30,7 @@ module.exports = function (grunt) {
         watch: {
             
             compass: {
-                files: ['<%= yeoman.app %>styles/{,*/}*.{scss,sass}'],
+                files: ['<%= yeoman.app %>styles/{,*/}*.scss'],
                 tasks: ['compass']
             },
             
@@ -201,7 +201,7 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>doc/images',
+                    cwd: '<%= yeoman.app %>assets/images',
                     src: '{,*/}*.{png,jpg,jpeg}',
                     dest: '<%= yeoman.dist %>/images'
                 }]
@@ -211,9 +211,9 @@ module.exports = function (grunt) {
         cssmin: {
             dist: {
                 files: {
-                    '<%= yeoman.dist %>/styles/main.css': [
+                    '<%= yeoman.dist %>/styles/css/main.css': [
                         '.tmp/styles/{,*/}*.css',
-                        '<%= yeoman.app %>/styles/{,*/}*.css'
+                        '<%= yeoman.app %>/styles/css/{,*/}*.css'
                     ]
                 }
             }
@@ -297,7 +297,7 @@ module.exports = function (grunt) {
             'compass:server',
             'connect:testserver',
             'express:dev',
-            'exec',  //mocha testing
+            // 'exec',  //mocha testing
             'open',
             'watch'
         ]);

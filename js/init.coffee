@@ -17,7 +17,7 @@ require.config
     "backbone.syphon": "../bower_components/backbone.syphon/lib/amd/backbone.syphon" # amd version
 
     # vendor scripts
-    bootstrap: "vendor/bootstrap"
+    bootstrap: "vendor/bootstrap"    
     royalslider: "vendor/royalslider.min"
 
      # data visualization

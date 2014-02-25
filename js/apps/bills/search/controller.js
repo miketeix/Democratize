@@ -20,8 +20,12 @@ define(["msgbus", "apps/bills/search/views", "controller/_base", "backbone"], fu
       this.entities = msgBus.reqres.request("menu:entities");
       this.layout = this.getLayoutView();
       this.listenTo(this.layout, "show", function() {
+        _this.toggleRegion();
         _this.inputRegion();
         return _this.menuRegion();
+      });
+      this.listenTo(this.layout, "toggle:tile:view", function() {
+        return msgBus.commands.execute("toggle:bills:region");
       });
       return this.show(this.layout);
     };
@@ -36,8 +40,17 @@ define(["msgbus", "apps/bills/search/views", "controller/_base", "backbone"], fu
       return this.layout.inputRegion.show(this.inputBox);
     };
 
+    Controller.prototype.toggleRegion = function() {
+      this.tileToggle = this.getToggleView();
+      return this.layout.toggleRegion.show(this.tileToggle);
+    };
+
     Controller.prototype.getLayoutView = function() {
       return new Views.Layout;
+    };
+
+    Controller.prototype.getToggleView = function() {
+      return new Views.ToggleView;
     };
 
     Controller.prototype.getInputView = function() {

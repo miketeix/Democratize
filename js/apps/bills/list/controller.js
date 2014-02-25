@@ -18,6 +18,9 @@ define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone"], func
         options = {};
       }
       this.entities = msgBus.reqres.request("bill:entities");
+      msgBus.commands.setHandler("toggle:bills:region", function() {
+        return _this.toggleBillsRegion();
+      });
       this.layout = this.getLayoutView();
       this.listenTo(this.layout, "show", function() {
         _this.searchRegion();
@@ -37,14 +40,34 @@ define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone"], func
       return sliderView.slider.updateSliderSize();
     };
 
-    Controller.prototype.getSliderView = function(collection) {
-      return new Views.SliderView({
-        collection: collection
-      });
+    Controller.prototype.tileRegion = function() {
+      var tileView;
+      tileView = this.getTileView(this.entities);
+      return this.layout.billsRegion.show(tileView);
+    };
+
+    Controller.prototype.toggleBillsRegion = function() {
+      if (this.layout.billsRegion.currentView instanceof Views.SliderView) {
+        return this.tileRegion();
+      } else {
+        return this.slideRegion();
+      }
     };
 
     Controller.prototype.searchRegion = function() {
       return msgBus.commands.execute("show:search", this.layout.searchRegion);
+    };
+
+    Controller.prototype.getTileView = function(collection) {
+      return new Views.TileView({
+        collection: collection
+      });
+    };
+
+    Controller.prototype.getSliderView = function(collection) {
+      return new Views.SliderView({
+        collection: collection
+      });
     };
 
     return Controller;
