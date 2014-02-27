@@ -8319,26 +8319,47 @@ html, body {
   width: 820px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 15px;
   max-height: 600px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_tile\.scss}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_tile\.scss}line{font-family:\0000314}}
 #tileitems {
   margin-right: -10px;
   margin-left: -10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_tile\.scss}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_tile\.scss}line{font-family:\0000318}}
 #tileitems li {
   width: 230px;
   height: 130px;
   padding: 15px;
   margin: 10px;
-  background-color: #FF9D24;
+  color: white;
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
   border-radius: 12px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_tile\.scss}line{font-family:\0000327}}
+#tileitems li.cpc {
+  background-color: #93b3e9;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_tile\.scss}line{font-family:\0000331}}
+#tileitems li.pq {
+  background-color: #6b90cf;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_tile\.scss}line{font-family:\0000335}}
+#tileitems li.ndp {
+  background-color: #FF9D24;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_tile\.scss}line{font-family:\0000339}}
+#tileitems li.lpc {
+  background-color: #ee8073;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_tile\.scss}line{font-family:\0000343}}
+#tileitems li.gpc {
+  background-color: #71ae60;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_bill_slide\.scss}line{font-family:\000032}}

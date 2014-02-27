@@ -18,9 +18,7 @@ define ['apps/bills/search/templates', 'views/_base', 'msgbus'], (Templates, App
 						"glyphicon-stop"
 					else if $(this).hasClass("glyphicon-stop")
 						"glyphicon-th"
-					# $(this).removeClass("glyphicon-th").addClass("glyphicon-stop");
-					# console.log($(this));
-				);
+				);  
 			@trigger "toggle:tile:view"
 
 	InputView: class InputView extends AppView.ItemView
