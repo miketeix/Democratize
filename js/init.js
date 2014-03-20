@@ -8,8 +8,12 @@ require.config({
     "backbone.wreqr": "../bower_components/backbone.wreqr/lib/amd/backbone.wreqr",
     "backbone.babysitter": "../bower_components/backbone.babysitter/lib/amd/backbone.babysitter",
     "backbone.syphon": "../bower_components/backbone.syphon/lib/amd/backbone.syphon",
+    obscura: "../bower_components/backbone.obscura/backbone.obscura",
     bootstrap: "vendor/bootstrap",
-    royalslider: "vendor/royalslider.min",
+    royalslider: "vendor/jquery.royalslider", //royalslider.min",
+    "rs.autoheight": "vendor/modules/jquery.rs.auto-height",
+    "rs.active-class": "vendor/modules/jquery.rs.active-class",
+    "rs.animated-blocks": "vendor/modules/jquery.rs.animated-blocks",
     d3: "../bower_components/d3/d3",
     text: "../bower_components/requirejs-text/text",
     handlebars: "../bower_components/require-handlebars-plugin/Handlebars",
@@ -23,6 +27,15 @@ require.config({
   shim: {
     royalslider: {
       deps: ["jquery"]
+    },
+    "rs.autoheight": {
+      deps:["royalslider"]
+    },
+    "rs.active-class": {
+      deps:["royalslider"]
+    },
+    "rs.animated-blocks": {
+      deps:["royalslider"]
     },
     bootstrap: {
       deps: ["jquery"],

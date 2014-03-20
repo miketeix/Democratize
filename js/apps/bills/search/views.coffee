@@ -26,6 +26,15 @@ define ['apps/bills/search/templates', 'views/_base', 'msgbus'], (Templates, App
 
 	MenuView: class MenuView extends AppView.ItemView
 		template: Templates.menu
+		events: 
+			"click .dropdown-menu a": "filterBills"
+		filterBills:(event)->
+			target = $(event.target)
+			data =
+				role: target.data("role")
+				filter: target.data("filter")
+			@trigger("filter:bills", data)
+
 	
 	ToggleView: class ToggleView extends AppView.ItemView
 		template: Templates.toggle

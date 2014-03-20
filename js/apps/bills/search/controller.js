@@ -31,7 +31,11 @@ define(["msgbus", "apps/bills/search/views", "controller/_base", "backbone"], fu
     };
 
     Controller.prototype.menuRegion = function() {
+      var _this = this;
       this.dropdown = this.getMenuView(this.entities);
+      this.listenTo(this.dropdown, "filter:bills", function(data) {
+        return msgBus.commands.execute("search:filter:bills", data);
+      });
       return this.layout.menuRegion.show(this.dropdown);
     };
 

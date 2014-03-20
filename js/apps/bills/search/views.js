@@ -62,6 +62,20 @@ define(['apps/bills/search/templates', 'views/_base', 'msgbus'], function(Templa
 
       MenuView.prototype.template = Templates.menu;
 
+      MenuView.prototype.events = {
+        "click .dropdown-menu a": "filterBills"
+      };
+
+      MenuView.prototype.filterBills = function(event) {
+        var data, target;
+        target = $(event.target);
+        data = {
+          role: target.data("role"),
+          filter: target.data("filter")
+        };
+        return this.trigger("filter:bills", data);
+      };
+
       return MenuView;
 
     })(AppView.ItemView),

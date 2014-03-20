@@ -2,7 +2,7 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone"], function(msgBus, Views, AppController, Backbone) {
+define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obscura", 'royalslider'], function(msgBus, Views, AppController, Backbone, Obscura, royalSlider) {
   var Controller, _ref;
   return Controller = (function(_super) {
     __extends(Controller, _super);
@@ -18,8 +18,12 @@ define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone"], func
         options = {};
       }
       this.entities = msgBus.reqres.request("bill:entities");
+      this.filtered = new Obscura(this.entities);
       msgBus.commands.setHandler("toggle:bills:region", function() {
         return _this.toggleBillsRegion();
+      });
+      msgBus.commands.setHandler("search:filter:bills", function(data) {
+        return _this.refreshFilter(data);
       });
       this.layout = this.getLayoutView();
       this.listenTo(this.layout, "show", function() {
@@ -35,14 +39,15 @@ define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone"], func
 
     Controller.prototype.slideRegion = function() {
       var sliderView;
-      sliderView = this.getSliderView(this.entities);
+      sliderView = this.getSliderView(this.filtered);
+      window.sliderView = sliderView;
       this.layout.billsRegion.show(sliderView);
       return sliderView.slider.updateSliderSize();
     };
 
     Controller.prototype.tileRegion = function() {
       var tileView;
-      tileView = this.getTileView(this.entities);
+      tileView = this.getTileView(this.filtered);
       return this.layout.billsRegion.show(tileView);
     };
 
@@ -68,6 +73,27 @@ define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone"], func
       return new Views.SliderView({
         collection: collection
       });
+    };
+
+    Controller.prototype.refreshFilter = function(data) {
+      $('#panes').royalSlider('destroy').empty();
+      console.log(data);
+      if (data.role === "party") {
+        return this.filtered.filterBy('party', {
+          party: data.filter
+        });
+      } else {
+        switch (data.filter) {
+          case "all":
+            return this.filtered.resetFilters();
+          case "newest":
+            return console.log("newest");
+          case "popular":
+            return console.log("popular");
+          case "random":
+            return console.log("random");
+        }
+      }
     };
 
     return Controller;

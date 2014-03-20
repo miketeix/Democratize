@@ -1,4 +1,4 @@
-define ['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], (Templates, AppView, msgBus, royalSlider) ->
+define ['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider', 'rs.autoheight'], (Templates, AppView, msgBus, royalSlider, autoheight) ->
 
 
 	SlideItem: class SlideItem extends AppView.ItemView
@@ -13,20 +13,40 @@ define ['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], (T
 			itemView: SlideItem
 			itemViewContainer: "#panes"
 			slider: null
+			collectionEvents:
+				"reset": "collectionReset"	
+			
+			onCompositeCollectionRendered: ->
+				console.log('onCompositeCollectionRendered');
+				@slider = @$itemViewContainer.royalSlider(
+					autoHeight: true,
+					keyboardNavEnabled: true,
+					arrowsNav: false,
+					navigateByClick: false,
+					allowCSS3: false,
+					controlNavigation: 'none').data('royalSlider')
 
 			onCompositeRendered: =>
-				@slider = @$("#panes").royalSlider(
-							autoHeight: true,
-							keyboardNavEnabled: true,
-							arrowsNav: false,
-							navigateByClick: false,
-							allowCSS3: false,
-							controlNavigation: 'none').data('royalSlider')
+				console.log("onCompositeRendered")	 
+				
+			collectionReset: ->
+				console.log("collection Reset")	
+				
+				
+				
 
 	TileView: class TileView extends AppView.CompositeView
 		template: Templates.tile
 		itemView: TileItem 
 		itemViewContainer: "#tileitems"
+		collectionEvents:
+				"reset": "collectionReset"
+
+		onCompositeCollectionRendered: ->
+				console.log('onCompositeCollectionRendered');
+
+		collectionReset: ->
+				console.log("collection Reset")
 						
 
 	Layout: class BillsAppLayout extends AppView.Layout
@@ -36,14 +56,6 @@ define ['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], (T
 			searchRegion: "#search-region"
 			billsRegion: "#bills-region"
 
-		events:
-			"click #tile-toggle": "tile"
-                # "click .grid":       "slide"
 
-		tile:->
-			@trigger "show:tile"
-
-        # slide:->
-        #     @trigger "show"	
 
   

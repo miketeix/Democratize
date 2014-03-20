@@ -14,11 +14,17 @@ define ["msgbus", "apps/bills/search/views", "controller/_base", "backbone" ], (
 			@listenTo @layout, "toggle:tile:view", =>
 				msgBus.commands.execute "toggle:bills:region"
 
+			
+
 			@show @layout
 
 
 		menuRegion: ->
 			@dropdown = @getMenuView @entities
+
+			@listenTo @dropdown, "filter:bills", (data) =>
+				msgBus.commands.execute "search:filter:bills", data
+
 			@layout.menuRegion.show @dropdown
 
 		inputRegion: ->

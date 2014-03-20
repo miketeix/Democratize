@@ -10,11 +10,14 @@ require.config
     backbone: "../bower_components/backbone-amd/backbone"
     underscore: "../bower_components/underscore-amd/underscore"
     
-    # alias all marionette libs 
+    # alias all marionette libs with backbone prefix
     "backbone.marionette": "../bower_components/backbone.marionette/lib/core/amd/backbone.marionette"
     "backbone.wreqr": "../bower_components/backbone.wreqr/lib/amd/backbone.wreqr"
     "backbone.babysitter": "../bower_components/backbone.babysitter/lib/amd/backbone.babysitter"
     "backbone.syphon": "../bower_components/backbone.syphon/lib/amd/backbone.syphon" # amd version
+
+    #Collection filtering w/ backbone Obscura
+    obscura: "../bower_components/backbone.obscura/backbone.obscura"
 
     # vendor scripts
     bootstrap: "vendor/bootstrap"    

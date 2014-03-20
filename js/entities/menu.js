@@ -6,31 +6,49 @@ define(["backbone", "msgbus"], function(Backbone, msgBus) {
       return new Backbone.Collection([
         {
           name: "All",
-          grouped: true
+          grouped: true,
+          role: "filter",
+          filter: "all"
         }, {
           name: "Popular",
-          grouped: true
+          grouped: true,
+          role: "filter",
+          filter: "popular"
         }, {
           name: "Random",
-          grouped: true
+          grouped: true,
+          role: "filter",
+          filter: "random"
         }, {
           name: "Newest",
-          grouped: true
+          grouped: true,
+          role: "filter",
+          filter: "newest"
         }, {
           name: "Conservative",
-          grouped: false
+          grouped: false,
+          role: "party",
+          filter: "cpc"
         }, {
           name: "Green",
-          grouped: false
+          grouped: false,
+          role: "party",
+          filter: "gpc"
         }, {
           name: "Liberal",
-          grouped: false
+          grouped: false,
+          role: "party",
+          filter: "lpc"
         }, {
           name: "NDP",
-          grouped: false
+          grouped: false,
+          role: "party",
+          filter: "ndp"
         }, {
           name: "PQ",
-          grouped: false
+          grouped: false,
+          role: "party",
+          filter: "pq"
         }
       ]);
     }
