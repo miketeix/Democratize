@@ -3,7 +3,7 @@ var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-define(['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider', 'rs.autoheight'], function(Templates, AppView, msgBus, royalSlider, autoheight) {
+define(['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], function(Templates, AppView, msgBus, royalSlider) {
   var BillsAppLayout, SlideItem, SliderView, TileItem, TileView, _ref, _ref1, _ref2, _ref3, _ref4;
   return {
     SlideItem: SlideItem = (function(_super) {

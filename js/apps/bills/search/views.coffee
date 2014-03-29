@@ -29,10 +29,11 @@ define ['apps/bills/search/templates', 'views/_base', 'msgbus'], (Templates, App
 		events: 
 			"click .dropdown-menu a": "filterBills"
 		filterBills:(event)->
-			target = $(event.target)
-			data =
-				role: target.data("role")
-				filter: target.data("filter")
+			# target = $(event.target)
+			# console.log(target.data())
+			data = $(event.target).data()
+				# role: target.data("role")
+				# filter: target.data("filter")
 			@trigger("filter:bills", data)
 
 	

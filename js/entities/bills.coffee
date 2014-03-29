@@ -59,7 +59,7 @@ define ["backbone","msgbus"], (Backbone, msgBus) ->
                 "n_comments": "0",
                 "tags": [
                     {
-                        "en": "Immigration",
+                        "en": "Economy",
                         "fr": "Immigration"
                     }
                 ]
@@ -89,7 +89,7 @@ define ["backbone","msgbus"], (Backbone, msgBus) ->
                 "n_comments": "0",
                 "tags": [
                     {
-                        "en": "Immigration",
+                        "en": "Aboriginal",
                         "fr": "Immigration"
                     }
                 ]
@@ -179,7 +179,7 @@ define ["backbone","msgbus"], (Backbone, msgBus) ->
                 "n_comments": "0",
                 "tags": [
                     {
-                        "en": "Immigration",
+                        "en": "Economy",
                         "fr": "Immigration"
                     }
                 ]

@@ -65,15 +65,16 @@
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_search\.scss}line{font-family:\0000378}}
 .dropdown {
   left: 32px;
-  top: 3px;
+  top: 7px;
+  z-index: 300;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_search\.scss}line{font-family:\0000382}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_search\.scss}line{font-family:\0000383}}
 .dropdown a {
   outline: none;
   cursor: default;
   color: #808080;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_search\.scss}line{font-family:\0000389}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_search\.scss}line{font-family:\0000390}}
 .dropdown a .glyphicon-search {
   -webkit-transform: scale(-1, 1);
   -moz-transform: scale(-1, 1);
@@ -81,31 +82,32 @@
   -o-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_search\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_search\.scss}line{font-family:\0000393}}
 .dropdown a .caret {
   vertical-align: bottom;
   margin-left: -3px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_search\.scss}line{font-family:\0000398}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_search\.scss}line{font-family:\0000399}}
 .dropdown .dropdown-menu {
   padding: 10px;
   width: 260px;
+  top: 22px;
   margin: 10px 0 0;
   border-radius: none;
   left: -10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_search\.scss}line{font-family:\00003109}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_search\.scss}line{font-family:\00003111}}
 .dropdown .dropdown-menu #reverse-caret:before {
   content: ' ';
   height: 0;
   position: absolute;
   top: -10px;
-  left: 16.5px;
+  left: 19.5px;
   width: 0;
   border: 5px solid transparent;
   border-bottom-color: white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_search\.scss}line{font-family:\00003122}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/marleneteixeira\/Documents\/Michael\/Projects\/Democratize\/Yeoman-Marionette\/styles\/apps\/partials\/bills\/_search\.scss}line{font-family:\00003124}}
 .dropdown .dropdown-menu li a {
   padding: 3px 10px;
   color: #808080;

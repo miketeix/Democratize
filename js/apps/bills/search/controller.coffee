@@ -1,4 +1,4 @@
-define ["msgbus", "apps/bills/search/views", "controller/_base", "backbone" ], (msgBus, Views, AppController, Backbone) ->
+define ["msgbus", "apps/bills/search/views", "controller/_base", "backbone", "typeahead" ], (msgBus, Views, AppController, Backbone, Typeahead) ->
 	class Controller extends AppController
 		initialize: (options={}) ->
 
@@ -30,6 +30,34 @@ define ["msgbus", "apps/bills/search/views", "controller/_base", "backbone" ], (
 		inputRegion: ->
 			@inputBox = @getInputView()
 			@layout.inputRegion.show @inputBox
+
+			# console.log(@inputBox.$("#autoComplete"))
+
+			tags = msgBus.reqres.request "tag:entities"
+			suggestionEngine = new Bloodhound
+				datumTokenizer: Bloodhound.tokenizers.obj.whitespace("tag")
+				queryTokenizer: Bloodhound.tokenizers.whitespace
+				local: $.map(tags, (tag) ->
+						tag: tag)
+
+			suggestionEngine.initialize()
+
+			autoComplete = @inputBox.$("#autoComplete")
+
+			autoComplete.typeahead
+				'hint': true
+				'highlight': true
+				'minLength': 1
+			,
+				'name': "tags"
+				'displayKey': "tag"
+				'source': suggestionEngine.ttAdapter()
+
+			autoComplete.on "typeahead:selected", (e, data)->
+				msgBus.commands.execute "search:filter:bills", data
+				
+				
+
 
 		toggleRegion: ->
 			@tileToggle = @getToggleView()

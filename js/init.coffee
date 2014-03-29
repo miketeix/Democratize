@@ -23,8 +23,13 @@ require.config
     bootstrap: "vendor/bootstrap"    
     royalslider: "vendor/royalslider.min"
 
-     # data visualization
+    # data visualization
     d3: "../bower_components/d3/d3"
+
+    # auto-complete 
+    typeahead: "../bower_components/typeahead.js/dist/typeahead.bundle"
+    # typeahead: "../bower_components/typeahead.js/dist/typeahead.jquery" #src/typeahead/typeahead
+    # bloodhound: "../bower_components/typeahead.js/dist/bloodhound" 
     
     # Alias text.js for template loading and shortcut the templates dir to tmpl 
     text: "../bower_components/requirejs-text/text"
@@ -54,6 +59,13 @@ require.config
     bootstrap:
       deps: ["jquery"]
       exports: "jquery"
+
+    typeahead:
+      deps:["jquery"]
+
+    bloodhound:
+      deps:["jquery"]
+
 
 # start app when all config is loaded
 require ["config/load", "app" ], (_config, app) -> # ensure that base application settings are loaded before we can call the app.  Templates, settings and jquery plugins

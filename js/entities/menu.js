@@ -7,48 +7,39 @@ define(["backbone", "msgbus"], function(Backbone, msgBus) {
         {
           name: "All",
           grouped: true,
-          role: "filter",
           filter: "all"
         }, {
           name: "Popular",
           grouped: true,
-          role: "filter",
           filter: "popular"
         }, {
           name: "Random",
           grouped: true,
-          role: "filter",
           filter: "random"
         }, {
           name: "Newest",
           grouped: true,
-          role: "filter",
           filter: "newest"
         }, {
           name: "Conservative",
           grouped: false,
-          role: "party",
-          filter: "cpc"
+          party: "cpc"
         }, {
           name: "Green",
           grouped: false,
-          role: "party",
-          filter: "gpc"
+          party: "gpc"
         }, {
           name: "Liberal",
           grouped: false,
-          role: "party",
-          filter: "lpc"
+          party: "lpc"
         }, {
           name: "NDP",
           grouped: false,
-          role: "party",
-          filter: "ndp"
+          party: "ndp"
         }, {
           name: "PQ",
           grouped: false,
-          role: "party",
-          filter: "pq"
+          party: "pq"
         }
       ]);
     }

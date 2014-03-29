@@ -7,6 +7,7 @@ define [
  "config/backbone/sync",				#custom sync handling to trigger before send and complete events to better support form/controller
  "entities/bills",
  "entities/menu",
+ "entities/tags",
  # "entities/_fetch",					#promise based fetch; handle 'when:fetched' event
  # "entities/abstract/buttons",    		#button abstract classes (save/cancel) for form/controller
  # "entities/twitchtv",

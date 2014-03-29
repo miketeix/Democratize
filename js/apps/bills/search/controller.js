@@ -2,7 +2,7 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(["msgbus", "apps/bills/search/views", "controller/_base", "backbone"], function(msgBus, Views, AppController, Backbone) {
+define(["msgbus", "apps/bills/search/views", "controller/_base", "backbone", "typeahead"], function(msgBus, Views, AppController, Backbone, Typeahead) {
   var Controller, _ref;
   return Controller = (function(_super) {
     __extends(Controller, _super);
@@ -40,8 +40,33 @@ define(["msgbus", "apps/bills/search/views", "controller/_base", "backbone"], fu
     };
 
     Controller.prototype.inputRegion = function() {
+      var autoComplete, suggestionEngine, tags;
       this.inputBox = this.getInputView();
-      return this.layout.inputRegion.show(this.inputBox);
+      this.layout.inputRegion.show(this.inputBox);
+      tags = msgBus.reqres.request("tag:entities");
+      suggestionEngine = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace("tag"),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        local: $.map(tags, function(tag) {
+          return {
+            tag: tag
+          };
+        })
+      });
+      suggestionEngine.initialize();
+      autoComplete = this.inputBox.$("#autoComplete");
+      autoComplete.typeahead({
+        'hint': true,
+        'highlight': true,
+        'minLength': 1
+      }, {
+        'name': "tags",
+        'displayKey': "tag",
+        'source': suggestionEngine.ttAdapter()
+      });
+      return autoComplete.on("typeahead:selected", function(e, data) {
+        return msgBus.commands.execute("search:filter:bills", data);
+      });
     };
 
     Controller.prototype.toggleRegion = function() {

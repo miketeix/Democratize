@@ -57,16 +57,20 @@ define ["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obsc
 
 		refreshFilter: (data) ->
 			$('#panes').royalSlider('destroy').empty()
-			console.log(data)
+			filterKey
+			for key of data
+				filterKey = key
 
-			if data.role is "party"
-				@filtered.filterBy('party', {party: data.filter})
-			else
-				switch data.filter
-					when "all" then @filtered.resetFilters()
-					when "newest" then console.log("newest")
-					when "popular" then console.log("popular")
-					when "random" then console.log("random")
+			switch filterKey
+				when "party" then @filtered.filterBy('party', {party: data.party})
+				when "filter" then switch data.filter
+						when "all" then @filtered.resetFilters()
+						when "newest" then console.log("newest")
+						when "popular" then console.log("popular")
+						when "random" then console.log("random")
+				when "mp" then console.log("random")
+				when "tag" then console.log(data)
+				when "bill" then console.log("bill")
 
 
 			

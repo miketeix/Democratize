@@ -1,4 +1,4 @@
-define ['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider', 'rs.autoheight'], (Templates, AppView, msgBus, royalSlider, autoheight) ->
+define ['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], (Templates, AppView, msgBus, royalSlider) -> #, 'rs.autoheight'
 
 
 	SlideItem: class SlideItem extends AppView.ItemView

@@ -3,15 +3,15 @@ define ["backbone","msgbus"], (Backbone, msgBus) ->
 	API = 
 		getMenuItems: ->
 			new Backbone.Collection [
-				(name: "All", grouped: true , role:"filter", filter: "all"),
-                                (name: "Popular", grouped: true, role:"filter", filter: "popular"),
-                                (name: "Random", grouped: true, role:"filter", filter: "random"),
-                                (name: "Newest", grouped: true, role:"filter", filter: "newest"),
-                                (name: "Conservative", grouped: false, role:"party", filter: "cpc"),
-                                (name: "Green", grouped: false, role:"party", filter: "gpc"),
-                                (name: "Liberal", grouped: false, role:"party", filter: "lpc"),
-                                (name: "NDP", grouped: false, role:"party", filter: "ndp"),
-                                (name: "PQ", grouped: false, role:"party", filter: "pq" )
+				(name: "All", grouped: true , filter: "all"),
+                                (name: "Popular", grouped: true, filter: "popular"),
+                                (name: "Random", grouped: true, filter: "random"),
+                                (name: "Newest", grouped: true,  filter: "newest"),
+                                (name: "Conservative", grouped: false,  party: "cpc"),
+                                (name: "Green", grouped: false,  party: "gpc"),
+                                (name: "Liberal", grouped: false,  party: "lpc"),
+                                (name: "NDP", grouped: false,  party: "ndp"),
+                                (name: "PQ", grouped: false,  party: "pq" )
 			             ]
 
 	msgBus.reqres.setHandler "menu:entities", ->

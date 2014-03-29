@@ -67,12 +67,8 @@ define(['apps/bills/search/templates', 'views/_base', 'msgbus'], function(Templa
       };
 
       MenuView.prototype.filterBills = function(event) {
-        var data, target;
-        target = $(event.target);
-        data = {
-          role: target.data("role"),
-          filter: target.data("filter")
-        };
+        var data;
+        data = $(event.target).data();
         return this.trigger("filter:bills", data);
       };
 

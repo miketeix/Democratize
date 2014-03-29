@@ -76,23 +76,35 @@ define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obsc
     };
 
     Controller.prototype.refreshFilter = function(data) {
+      var filterKey, key;
       $('#panes').royalSlider('destroy').empty();
-      console.log(data);
-      if (data.role === "party") {
-        return this.filtered.filterBy('party', {
-          party: data.filter
-        });
-      } else {
-        switch (data.filter) {
-          case "all":
-            return this.filtered.resetFilters();
-          case "newest":
-            return console.log("newest");
-          case "popular":
-            return console.log("popular");
-          case "random":
-            return console.log("random");
-        }
+      filterKey;
+      for (key in data) {
+        filterKey = key;
+      }
+      switch (filterKey) {
+        case "party":
+          return this.filtered.filterBy('party', {
+            party: data.party
+          });
+        case "filter":
+          switch (data.filter) {
+            case "all":
+              return this.filtered.resetFilters();
+            case "newest":
+              return console.log("newest");
+            case "popular":
+              return console.log("popular");
+            case "random":
+              return console.log("random");
+          }
+          break;
+        case "mp":
+          return console.log("random");
+        case "tag":
+          return console.log(data);
+        case "bill":
+          return console.log("bill");
       }
     };
 

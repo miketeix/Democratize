@@ -5,7 +5,7 @@
     {{#each items }}
       {{#if grouped}}
         <li role="presentation" style="display:inline-block;"> 
-          <a role="menuitem" tabindex="0" href="#" data-filter="{{filter}}" data-role="{{role}}" >{{ name }}</a>
+          <a role="menuitem" tabindex="0" href="#" data-filter="{{filter}}" >{{ name }}</a>
         </li>
       {{/if}}
     {{/each}}
@@ -13,7 +13,7 @@
     {{#each items }}
       {{#unless grouped}}
         <li role="presentation"> 
-          <a role="menuitem" tabindex="0" href="#" data-filter="{{filter}}" data-role="{{role}}">{{ name }}</a>
+          <a role="menuitem" tabindex="0" href="#" data-party="{{party}}" >{{ name }}</a>
         </li>
       {{/unless}}
       

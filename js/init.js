@@ -10,11 +10,9 @@ require.config({
     "backbone.syphon": "../bower_components/backbone.syphon/lib/amd/backbone.syphon",
     obscura: "../bower_components/backbone.obscura/backbone.obscura",
     bootstrap: "vendor/bootstrap",
-    royalslider: "vendor/jquery.royalslider", //royalslider.min",
-    "rs.autoheight": "vendor/modules/jquery.rs.auto-height",
-    "rs.active-class": "vendor/modules/jquery.rs.active-class",
-    "rs.animated-blocks": "vendor/modules/jquery.rs.animated-blocks",
+    royalslider: "vendor/royalslider.min",
     d3: "../bower_components/d3/d3",
+    typeahead: "../bower_components/typeahead.js/dist/typeahead.bundle",
     text: "../bower_components/requirejs-text/text",
     handlebars: "../bower_components/require-handlebars-plugin/Handlebars",
     i18nprecompile: "../bower_components/require-handlebars-plugin/hbs/i18nprecompile",
@@ -28,18 +26,15 @@ require.config({
     royalslider: {
       deps: ["jquery"]
     },
-    "rs.autoheight": {
-      deps:["royalslider"]
-    },
-    "rs.active-class": {
-      deps:["royalslider"]
-    },
-    "rs.animated-blocks": {
-      deps:["royalslider"]
-    },
     bootstrap: {
       deps: ["jquery"],
       exports: "jquery"
+    },
+    typeahead: {
+      deps: ["jquery"]
+    },
+    bloodhound: {
+      deps: ["jquery"]
     }
   }
 });
