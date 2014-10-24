@@ -23,23 +23,23 @@ define(["backbone", "msgbus"], function(Backbone, msgBus) {
         }, {
           name: "Conservative",
           grouped: false,
-          party: "cpc"
+          party: "Conservative Party of Canada"
         }, {
           name: "Green",
           grouped: false,
-          party: "gpc"
+          party: "Green Party of Canada"
         }, {
           name: "Liberal",
           grouped: false,
-          party: "lpc"
+          party: "Liberal Party of Canada"
         }, {
           name: "NDP",
           grouped: false,
-          party: "ndp"
+          party: "New Democrat Party of Canada"
         }, {
-          name: "PQ",
+          name: "Bloc",
           grouped: false,
-          party: "pq"
+          party: "Bloc Quebecois"
         }
       ]);
     }

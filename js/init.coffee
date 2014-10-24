@@ -21,7 +21,7 @@ require.config
 
     # vendor scripts
     bootstrap: "vendor/bootstrap"    
-    royalslider: "vendor/royalslider.min"
+    royalslider: "vendor/royalslider.min"#jquery.royalslider"
 
     # data visualization
     d3: "../bower_components/d3/d3"

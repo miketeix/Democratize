@@ -2,7 +2,7 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obscura", 'royalslider'], function(msgBus, Views, AppController, Backbone, Obscura, royalSlider) {
+define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obscura", "royalslider", "underscore"], function(msgBus, Views, AppController, Backbone, Obscura, royalSlider, _) {
   var Controller, _ref;
   return Controller = (function(_super) {
     __extends(Controller, _super);
@@ -17,9 +17,16 @@ define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obsc
       if (options == null) {
         options = {};
       }
+      console.log("options", options);
+      this.isMpPage = options.isMpPage;
       this.entities = msgBus.reqres.request("bill:entities");
       this.filtered = new Obscura(this.entities);
-      msgBus.commands.setHandler("toggle:bills:region", function() {
+      this.startSlide = 0;
+      msgBus.commands.setHandler("toggle:bills:region", function(tileIndex) {
+        if (tileIndex == null) {
+          tileIndex = 0;
+        }
+        _this.startSlide = tileIndex;
         return _this.toggleBillsRegion();
       });
       msgBus.commands.setHandler("search:filter:bills", function(data) {
@@ -27,8 +34,13 @@ define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obsc
       });
       this.layout = this.getLayoutView();
       this.listenTo(this.layout, "show", function() {
-        _this.searchRegion();
-        return _this.slideRegion();
+        console.log("isMpPage", _this.isMpPage);
+        if (_this.isMpPage) {
+          return _this.tileRegion();
+        } else {
+          _this.searchRegion();
+          return _this.slideRegion();
+        }
       });
       return this.show(this.layout);
     };
@@ -71,13 +83,30 @@ define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obsc
 
     Controller.prototype.getSliderView = function(collection) {
       return new Views.SliderView({
-        collection: collection
+        collection: collection,
+        startSlide: this.startSlide
       });
     };
 
+    Controller.prototype.partyLookup = function(partyName) {
+      switch (partyName) {
+        case "Conservative Party of Canada":
+          return "cpc";
+        case "Liberal Party of Canada":
+          return "lpc";
+        case "New Democrat Party":
+          return "ndp";
+        case "Green Party of Canada":
+          return "gpc";
+        case "Bloc Quebecois":
+          return "bq";
+      }
+    };
+
     Controller.prototype.refreshFilter = function(data) {
-      var filterKey, key;
+      var filterKey, incomingData, key;
       $('#panes').royalSlider('destroy').empty();
+      incomingData = data;
       filterKey;
       for (key in data) {
         filterKey = key;
@@ -85,14 +114,14 @@ define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obsc
       switch (filterKey) {
         case "party":
           return this.filtered.filterBy('party', {
-            party: data.party
+            party: this.partyLookup(data.party)
           });
         case "filter":
           switch (data.filter) {
             case "all":
               return this.filtered.resetFilters();
             case "newest":
-              return console.log("newest");
+              return this.filtered.sortBy('introduced');
             case "popular":
               return console.log("popular");
             case "random":
@@ -100,11 +129,17 @@ define(["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obsc
           }
           break;
         case "mp":
-          return console.log("random");
-        case "tag":
-          return console.log(data);
-        case "bill":
-          return console.log("bill");
+          return msgBus.commands.execute("show:mp:profile");
+        case "tags":
+          return this.filtered.filterBy('tags', function(model) {
+            return _.some(model.get('tags'), function(obj) {
+              return obj.en === incomingData.tags;
+            });
+          });
+        case "riding":
+          return this.filtered.filterBy('riding', {
+            riding: data.riding
+          });
       }
     };
 

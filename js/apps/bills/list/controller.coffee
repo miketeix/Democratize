@@ -1,11 +1,15 @@
-define ["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obscura", 'royalslider' ], (msgBus, Views, AppController, Backbone, Obscura, royalSlider) ->
+define ["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obscura", "royalslider", "underscore" ], (msgBus, Views, AppController, Backbone, Obscura, royalSlider, _) ->
 	class Controller extends AppController
 		initialize: (options={})->
+			console.log("options", options)
+			@isMpPage = options.isMpPage
 
 			@entities= msgBus.reqres.request "bill:entities"
 			@filtered = new Obscura(@entities)
+			@startSlide = 0
 			
-			msgBus.commands.setHandler "toggle:bills:region", =>
+			msgBus.commands.setHandler "toggle:bills:region", (tileIndex = 0) =>
+				@startSlide = tileIndex
 				@toggleBillsRegion()
 
 			msgBus.commands.setHandler "search:filter:bills", (data) =>
@@ -14,8 +18,12 @@ define ["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obsc
 			@layout = @getLayoutView()
 
 			@listenTo @layout, "show", =>
-				@searchRegion()
-				@slideRegion() 
+				console.log("isMpPage", @isMpPage)
+				if @isMpPage
+					@tileRegion()
+				else
+					@searchRegion()
+					@slideRegion() 
 
 
 			@show @layout
@@ -54,24 +62,36 @@ define ["msgbus", "apps/bills/list/views", "controller/_base", "backbone", "obsc
 		getSliderView: (collection) ->
 			new Views.SliderView
 				collection: collection
+				startSlide: @startSlide
+
+		partyLookup: (partyName) ->
+			switch partyName
+				when "Conservative Party of Canada" then return "cpc"
+				when "Liberal Party of Canada" then return "lpc"
+				when "New Democrat Party" then return "ndp"
+				when "Green Party of Canada" then return "gpc"
+				when "Bloc Quebecois" then return "bq"
 
 		refreshFilter: (data) ->
 			$('#panes').royalSlider('destroy').empty()
+			incomingData = data
 			filterKey
 			for key of data
 				filterKey = key
 
 			switch filterKey
-				when "party" then @filtered.filterBy('party', {party: data.party})
+				when "party" then @filtered.filterBy('party', {party: @partyLookup(data.party)})
 				when "filter" then switch data.filter
 						when "all" then @filtered.resetFilters()
-						when "newest" then console.log("newest")
+						when "newest" then @filtered.sortBy('introduced') # ToDo look up how to sort w/ Obscura
 						when "popular" then console.log("popular")
 						when "random" then console.log("random")
-				when "mp" then console.log("random")
-				when "tag" then console.log(data)
-				when "bill" then console.log("bill")
-
+				when "mp" then msgBus.commands.execute "show:mp:profile" #@filtered.filterBy('sponsor', {sponsor: data.mp})
+				when "tags" then @filtered.filterBy('tags', (model) ->
+					_.some model.get('tags'), (obj) ->
+						obj.en is incomingData.tags) # obj.en if in English, obj.fr if in French 
+				when "riding" then @filtered.filterBy('riding', { riding:data.riding})
+		
 
 			
 			

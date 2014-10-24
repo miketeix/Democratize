@@ -20,6 +20,22 @@
   margin-left: 20px;
 }
 
+#sliderDetails {
+  width: 820px;
+  text-align: right;
+  margin: 0 auto 50px;
+  color: black;
+  font-family: serif;
+
+  #readFull{
+    float: left;
+  }
+
+  #slideQueue {
+    float: right;
+  }
+}
+
 #slider-wrapper {
 
    

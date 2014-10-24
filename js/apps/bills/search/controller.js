@@ -34,38 +34,99 @@ define(["msgbus", "apps/bills/search/views", "controller/_base", "backbone", "ty
       var _this = this;
       this.dropdown = this.getMenuView(this.entities);
       this.listenTo(this.dropdown, "filter:bills", function(data) {
+        console.log(data);
         return msgBus.commands.execute("search:filter:bills", data);
       });
       return this.layout.menuRegion.show(this.dropdown);
     };
 
     Controller.prototype.inputRegion = function() {
-      var autoComplete, suggestionEngine, tags;
+      var autoComplete, mpTags, mps, parties, partyTags, ridingTags, ridings, subjectTags, _tags;
       this.inputBox = this.getInputView();
       this.layout.inputRegion.show(this.inputBox);
-      tags = msgBus.reqres.request("tag:entities");
-      suggestionEngine = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace("tag"),
+      mps = msgBus.reqres.request("mpTag:entities");
+      _tags = msgBus.reqres.request("subjectTag:entities");
+      ridings = msgBus.reqres.request("ridingTag:entities");
+      parties = msgBus.reqres.request("partyTag:entities");
+      mpTags = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace("mp"),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
-        local: $.map(tags, function(tag) {
+        local: $.map(mps, function(memberTag) {
           return {
-            tag: tag
+            mp: memberTag
           };
         })
       });
-      suggestionEngine.initialize();
+      subjectTags = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace("tags"),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        local: $.map(_tags, function(tag) {
+          return {
+            tags: tag
+          };
+        })
+      });
+      ridingTags = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace("riding"),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        local: $.map(ridings, function(ridingTag) {
+          return {
+            riding: ridingTag
+          };
+        })
+      });
+      partyTags = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace("party"),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        local: $.map(parties, function(partyTag) {
+          return {
+            party: partyTag
+          };
+        })
+      });
+      mpTags.initialize();
+      subjectTags.initialize();
+      ridingTags.initialize();
+      partyTags.initialize();
       autoComplete = this.inputBox.$("#autoComplete");
       autoComplete.typeahead({
         'hint': true,
         'highlight': true,
         'minLength': 1
       }, {
-        'name': "tags",
-        'displayKey': "tag",
-        'source': suggestionEngine.ttAdapter()
+        'name': "mpTags",
+        'displayKey': "mp",
+        'source': mpTags.ttAdapter(),
+        'templates': {
+          header: '<h3 class="">Members of Parliament</h3>'
+        }
+      }, {
+        'name': "subjectTags",
+        'displayKey': "tags",
+        'source': subjectTags.ttAdapter(),
+        'templates': {
+          header: '<h3 class="">Issues</h3>'
+        },
+        'name': "ridingTags",
+        'displayKey': "riding",
+        'source': ridingTags.ttAdapter(),
+        'templates': {
+          header: '<h3 class="">Riding</h3>'
+        },
+        'name': "partyTags",
+        'displayKey': "party",
+        'source': partyTags.ttAdapter(),
+        'templates': {
+          header: '<h3 class="">Parties</h3>'
+        }
       });
-      return autoComplete.on("typeahead:selected", function(e, data) {
-        return msgBus.commands.execute("search:filter:bills", data);
+      return autoComplete.on("typeahead:selected", function(e, data, dataset) {
+        console.log(data);
+        if (dataset === "mpTags") {
+          return msgBus.commands.execute("show:mp:profile", data);
+        } else {
+          return msgBus.commands.execute("search:filter:bills", data);
+        }
       });
     };
 

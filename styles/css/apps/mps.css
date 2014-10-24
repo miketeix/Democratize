@@ -1,0 +1,49 @@
+/* line 2, ../../apps/mps.scss */
+#profileCard {
+  margin-top: 60px;
+  background-color: grey;
+  position: relative;
+  padding: 0 75px;
+  text-align: left;
+  font-family: serif;
+  width: 670px;
+  height: 390px;
+  overflow: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+/* line 19, ../../apps/mps.scss */
+#profileCard .row {
+  margin: 40px 0 0 0;
+}
+/* line 24, ../../apps/mps.scss */
+#profileCard .col-xs-4, #profileCard .col-xs-8 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+/* line 33, ../../apps/mps.scss */
+#contactBanner {
+  width: 100%;
+  height: 35px;
+  margin-top: 30px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+/* line 43, ../../apps/mps.scss */
+#contactBanner #contactInfo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+/* line 51, ../../apps/mps.scss */
+#contactBanner #contactInfo span {
+  padding-left: 2em;
+  font-size: 12px;
+}

@@ -29,6 +29,12 @@ define(['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], fu
 
       TileItem.prototype.template = Templates.tileItem;
 
+      TileItem.prototype.events = {
+        "click": function() {
+          return msgBus.commands.execute("toggle:bills:region", this.options.indexInCollection);
+        }
+      };
+
       return TileItem;
 
     })(AppView.ItemView),
@@ -53,16 +59,37 @@ define(['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], fu
         "reset": "collectionReset"
       };
 
+      SliderView.prototype.ui = {
+        currSlide: "#currentSlide",
+        totalSlides: "#slideTotal"
+      };
+
+      SliderView.prototype.events = {
+        "click .prev": function() {
+          return this.slider.prev();
+        },
+        "click .next": function() {
+          return this.slider.next();
+        }
+      };
+
       SliderView.prototype.onCompositeCollectionRendered = function() {
+        var _this = this;
         console.log('onCompositeCollectionRendered');
-        return this.slider = this.$itemViewContainer.royalSlider({
+        console.log(this);
+        this.slider = this.$itemViewContainer.royalSlider({
           autoHeight: true,
           keyboardNavEnabled: true,
           arrowsNav: false,
           navigateByClick: false,
           allowCSS3: false,
+          startSlideId: this.options.startSlide,
           controlNavigation: 'none'
         }).data('royalSlider');
+        this.updateResultsQueue(this.options.startSlide, this.collection.models.length);
+        return this.slider.ev.on('rsAfterSlideChange', function(event) {
+          return _this.updateResultsQueue(event.target.currSlideId, event.target.numSlides);
+        });
       };
 
       SliderView.prototype.onCompositeRendered = function() {
@@ -73,6 +100,11 @@ define(['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], fu
         return console.log("collection Reset");
       };
 
+      SliderView.prototype.updateResultsQueue = function(current, total) {
+        this.ui.currSlide.html(current + 1);
+        return this.ui.totalSlides.html(total);
+      };
+
       return SliderView;
 
     })(AppView.CompositeView),
@@ -80,6 +112,7 @@ define(['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], fu
       __extends(TileView, _super);
 
       function TileView() {
+        this.onCompositeRendered = __bind(this.onCompositeRendered, this);
         _ref3 = TileView.__super__.constructor.apply(this, arguments);
         return _ref3;
       }
@@ -88,15 +121,23 @@ define(['apps/bills/list/templates', 'views/_base', 'msgbus', 'royalslider'], fu
 
       TileView.prototype.itemView = TileItem;
 
-      TileView.prototype.itemViewContainer = "#tileitems";
+      TileView.prototype.itemViewContainer = "#tileItems";
 
       TileView.prototype.collectionEvents = {
         "reset": "collectionReset"
       };
 
-      TileView.prototype.onCompositeCollectionRendered = function() {
-        return console.log('onCompositeCollectionRendered');
+      TileView.prototype.itemViewOptions = function(model) {
+        return {
+          indexInCollection: this.collection.indexOf(model)
+        };
       };
+
+      TileView.prototype.onCompositeRendered = function() {
+        return console.log("onCompositeRendered");
+      };
+
+      TileView.prototype.onCompositeCollectionRendered = function() {};
 
       TileView.prototype.collectionReset = function() {
         return console.log("collection Reset");

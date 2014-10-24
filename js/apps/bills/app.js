@@ -29,12 +29,25 @@ define(["msgbus", "backbone.marionette", "backbone", "apps/bills/list/controller
       return new SearchController({
         region: region
       });
+    },
+    listMpBills: function(data) {
+      return new ListController({
+        region: data.region,
+        mpName: data.mpName,
+        isMpPage: data.isMpPage
+      });
     }
   };
   msgBus.commands.setHandler("start:bills:app", function() {
     return API.list();
   });
-  return msgBus.commands.setHandler("show:search", function(region) {
+  msgBus.commands.setHandler("show:search", function(region) {
     return API.search(region);
+  });
+  return msgBus.reqres.setHandler("get:bills:app", function(mpData) {
+    var billsApp;
+    console.log(mpData);
+    billsApp = API.listMpBills(mpData);
+    return billsApp;
   });
 });

@@ -7,11 +7,11 @@ define ["backbone","msgbus"], (Backbone, msgBus) ->
                                 (name: "Popular", grouped: true, filter: "popular"),
                                 (name: "Random", grouped: true, filter: "random"),
                                 (name: "Newest", grouped: true,  filter: "newest"),
-                                (name: "Conservative", grouped: false,  party: "cpc"),
-                                (name: "Green", grouped: false,  party: "gpc"),
-                                (name: "Liberal", grouped: false,  party: "lpc"),
-                                (name: "NDP", grouped: false,  party: "ndp"),
-                                (name: "PQ", grouped: false,  party: "pq" )
+                                (name: "Conservative", grouped: false,  party: "Conservative Party of Canada"),
+                                (name: "Green", grouped: false,  party: "Green Party of Canada"),
+                                (name: "Liberal", grouped: false,  party: "Liberal Party of Canada"),
+                                (name: "NDP", grouped: false,  party: "New Democrat Party of Canada"),
+                                (name: "Bloc", grouped: false,  party: "Bloc Quebecois" )
 			             ]
 
 	msgBus.reqres.setHandler "menu:entities", ->

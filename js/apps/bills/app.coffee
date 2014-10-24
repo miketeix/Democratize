@@ -15,6 +15,13 @@ define ["msgbus", "backbone.marionette", "backbone", "apps/bills/list/controller
 			new SearchController
 				region: region
 
+		listMpBills: (data) ->
+			new ListController
+				region: data.region
+				mpName: data.mpName
+				isMpPage: data.isMpPage
+
+
 		# search: (region) ->
 		# 	new SearchController
 		# 		region: region
@@ -24,3 +31,8 @@ define ["msgbus", "backbone.marionette", "backbone", "apps/bills/list/controller
 
 	msgBus.commands.setHandler "show:search", (region) ->
 		API.search region
+
+	msgBus.reqres.setHandler "get:bills:app", (mpData) ->
+		console.log(mpData)
+		billsApp = API.listMpBills(mpData)
+		billsApp
